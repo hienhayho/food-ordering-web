@@ -1,5 +1,5 @@
 import Image from "next/image";
-import RightArrow from '../icons/RightArrow';
+import { RightArrow } from "../icons";
 
 const Hero = () => {
     return (

@@ -1,5 +1,6 @@
 "use client";
 
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -94,7 +95,7 @@ const RegisterPage = () => {
                 <div className="my-4">
                     or login with providers
                 </div>
-                <button className="flex justify-center gap-4 hover:bg-gray-100 transition-all">
+                <button onClick={() => signIn("google", { callbackUrl: "/" })} className="flex justify-center gap-4 hover:bg-gray-100 transition-all">
                     <Image src={"/google.png"} alt="" width={24} height={24} />
                     <span>Login with google</span>
                 </button>

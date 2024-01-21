@@ -1,6 +1,7 @@
 "use client"
 
 import { signIn } from "next-auth/react";
+import { redirect } from "next/dist/server/api-utils";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -30,7 +31,7 @@ const LoginPage = () => {
         setloginInProgress(true);
         setError(false);
 
-        await signIn("credentials", { email, password });
+        await signIn("credentials", { email, password, callbackUrl: "/" });
 
 
         setloginInProgress(false);
@@ -64,7 +65,7 @@ const LoginPage = () => {
                 <div className="my-4 text-center">
                     or login with providers
                 </div>
-                <button onClick={() => signIn("google")} className="flex justify-center gap-4 hover:bg-gray-100 transition-all">
+                <button type="button" onClick={() => signIn("google", { callbackUrl: "/" })} className="flex justify-center gap-4 hover:bg-gray-100 transition-all">
                     <Image src={"/google.png"} alt="" width={24} height={24} />
                     <span>Login with google</span>
                 </button>
@@ -74,8 +75,8 @@ const LoginPage = () => {
                         Register here &raquo;
                     </Link>
                 </div>
-            </form>
-        </section>
+            </form >
+        </section >
     );
 }
 

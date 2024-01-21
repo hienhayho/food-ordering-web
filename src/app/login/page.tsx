@@ -64,7 +64,7 @@ const LoginPage = () => {
                 <div className="my-4 text-center">
                     or login with providers
                 </div>
-                <button className="flex justify-center gap-4 hover:bg-gray-100 transition-all">
+                <button onClick={() => signIn("google")} className="flex justify-center gap-4 hover:bg-gray-100 transition-all">
                     <Image src={"/google.png"} alt="" width={24} height={24} />
                     <span>Login with google</span>
                 </button>

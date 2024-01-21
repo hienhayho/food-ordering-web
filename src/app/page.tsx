@@ -5,6 +5,10 @@ import HomeMenu from "@/components/layout/HomeMenu";
 import SectionHeader from "@/components/layout/SectionHeader";
 
 export default function Home() {
+
+    let current = new Date();
+    let currentYear = current.getFullYear()
+
     return (
         <>
             <Header />
@@ -43,6 +47,10 @@ export default function Home() {
                     <a href="tel:+86 123456789">+86 123 456 789</a>
                 </div>
             </section>
+
+            <footer className="border-t py-4 text-center text-gray-500 mt-8">
+                &copy; {currentYear} All rights reserved
+            </footer>
         </>
     );
 }
